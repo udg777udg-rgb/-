@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Послестроительный клининг в Улан-Удэ | КРИСТАЛЛ КЛИНИНГ 03</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Специфические акценты для страницы послестроя */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 0;
+            overflow: hidden;
+        }
+        .hero-video {
+            position: absolute;
+            top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto;
+            z-index: -2;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.25;
+            filter: blur(2px);
+        }
+        .hero-banner h1 {
+            font-size: 4em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero-banner p {
+            font-size: 1.2em;
+            color: #94a3b8;
+            max-width: 650px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        .col-6 { grid-column: span 6; }
+        .col-4 { grid-column: span 4; }
+        .col-8 { grid-column: span 8; }
+        .col-12 { grid-column: span 12; }
+        
+        .badge-fomo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 0, 119, 0.1);
+            border: 1px solid rgba(255, 0, 119, 0.2);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.85em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #ff4593;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .upload-bento {
+            border: 2px dashed rgba(0, 240, 255, 0.15);
+            background: rgba(0, 240, 255, 0.01);
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .upload-bento:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(0, 240, 255, 0.03);
+        }
+        .file-hidden { display: none; }
+        .tech-tag {
+            font-size: 0.75em;
+            font-weight: 900;
+            color: var(--accent-cyan);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .hero-banner h1 { font-size: 2.3em; }
+            .col-6, .col-4, .col-8 { grid-column: span 12; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-light" style="background: radial-gradient(circle, rgba(0, 114, 255, 0.06) 0%, transparent 70%);"></div>
+
+    <!-- БЛОК 1: ГЛАВНЫЙ ЭКРАН (ИНТЕГРАЦИЯ С ТЕХНОЛОГИЧНЫМ ВИДЕО) -->
+    <div class="hero-banner">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="https://mixkit.co" type="video/mp4">
+        </video>
+        <div class="container">
+            <div class="badge-fomo">
+                ⚡️ Сезонная сдача ЖК: осталось 2 свободных выезда на этой неделе
+            </div>
+            <h1 class="text-gradient">Интеллектуальный<br>послестрой</h1>
+            <p>Ликвидация мелкодисперсной строительной пыли, остатков цемента и эпоксидной затирки от 170 ₽/м². Сохраняем глянец, хром и матовые текстуры вашего дорогого ремонта.</p>
+            <div class="btn-group">
+                <a href="#calculator" class="btn-nextgen">Запустить калькулятор</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- БЛОК 2: БЕНТО-АРСЕНАЛ И СТАНДАРТ КАЧЕСТВА -->
+    <div class="section">
+        <div class="container">
+            <h2 class="text-gradient" style="font-size: 2em; text-align: center; margin-bottom: 10px;">Технологическое превосходство</h2>
+            <p style="color: var(--text-muted); text-align: center; font-weight: 300; margin-bottom: 40px;">Кристалл Клининг 03 не использует бытовую химию и тряпки из супермаркетов</p>
+            
+            <div class="bento-grid">
+                <div class="bento-card col-4">
+                    <span class="tech-tag">Химия</span>
+                    <h3 style="margin-bottom: 10px;">PRO-BRITE</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9em; font-weight: 300;">Промышленные сертифицированные составы бережно растворяют следы ремонта без термических и химических ожогов сантехники.</p>
+                </div>
+                
+                <div class="bento-card col-4">
+                    <span class="tech-tag">Оборудование</span>
+                    <h3 style="margin-bottom: 10px;">KÄRCHER</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9em; font-weight: 300;">Высокоэффективные строительные турбины полностью высасывают опасный строительный осадок из радиаторов и пазов оконных рам.</p>
+                </div>
+
+                <div class="bento-card col-4">
+                    <span class="tech-tag">Безопасность</span>
+                    <h3 style="margin-bottom: 10px;">ДОГОВОР 100%</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9em; font-weight: 300;">Несем полную юридическую и материальную ответственность за сохранность каждого элемента вашей новой отделки.</p>
+                </div>
+
+                <div class="bento-card col-12">
+                    <h3 style="color: var(--accent-cyan); margin-bottom: 15px;">Что входит в технологический стандарт:</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; font-size: 0.9em; color: #cbd5e1; font-weight: 300;">
+                        <div>• Обеспыливание стен и потолков мопами</div>
+                        <div>• Мытье остекления, удаление защитных пленок</div>
+                        <div>• Очистка межплиточных швов от затирки</div>
+                        <div>• Деликатная полировка всей фурнитуры и хрома</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- БЛОК 3: ИНТЕРАКТИВНЫЙ ПРАЙС-ОПТИМИЗАТОР -->
+    <div class="section" id="calculator">
+        <div class="container">
+            <div class="bento-card col-12" style="max-width: 800px; margin: 0 auto; background: rgba(0, 240, 255, 0.01); border-color: rgba(0, 240, 255, 0.1);">
+                <h2 class="text-gradient" style="font-size: 1.8em; text-align: center; margin-bottom: 35px;">Конфигуратор площади и доп. зон</h2>
+                
+                <div class="slider-wrapper">
+                    <label style="font-weight: 500; color: #cbd5e1; display: block; margin-bottom: 10px;">Площадь квартиры / дома:</label>
+                    <input type="range" min="30" max="250" value="60" class="custom-range" id="repairArea">
+                    <div class="area-display" style="color: #ffffff;"><span id="repairAreaOut">60</span> м²</div>
+                </div>
+
+                <div class="slider-wrapper">
+                    <label style="font-weight: 500; color: #cbd5e1; display: block; margin-bottom: 15px;">Дополнительные критерии сдачи:</label>
+                    <div class="options-grid">
+                        <label class="check-label"><input type="checkbox" id="repWin" checked> Глубокое мытье окон (+30₽/м²)</label>
+                        <label class="check-label"><input type="checkbox" id="repLustre"> Сложные люстры (+1000₽)</label>
+                        <label class="check-label"><input type="checkbox" id="repTrash"> Сбор мелкого мусора (+1500₽)</label>
+                    </div>
+                </div>
+
+                <div class="total-box">
+                    <h3>Предварительная смета послестроя:</h3>
+                    <div class="price-output" style="color: var(--accent-cyan);" id="repairTotalOut">12000 ₽</div>
+                    <a href="https://wa.me" class="btn-nextgen" style="background: var(--accent-cyan); color: #000;" id="repairWaSubmit" target="_blank">Зафиксировать смету в WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- БЛОК 4: ЭКСПРЕСС-АНАЛИЗ СТРОИТЕЛЬНЫХ ЗАГРЯЗНЕНИЙ -->
+    <div class="section" id="photo-target">
+        <div class="container">
+            <div class="bento-grid" style="max-width: 700px; margin: 0 auto;">
+                <div class="bento-card col-12 upload-bento" onclick="document.getElementById('repairPhotos').click()">
+                    <span style="font-size: 2.5em; display: block; margin-bottom: 10px;">📷</span>
+                    <h3 style="font-size: 1.1em; letter-spacing: 1px; text-transform: uppercase;">Отправить фото ремонта на оценку</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9em; margin-top: 5px;">Снимки проблемных зон, плитки или окон помогут бригадиру назвать точную цену без выезда</p>
+                    <input type="file" id="repairPhotos" class="file-hidden" multiple accept="image/*">
+                    <div id="repairFileText" style="margin-top: 15px; color: var(--accent-cyan); font-weight: bold;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- БЛОК 5: НИЖНИЙ НАВИГАЦИОННЫЙ СЛОЙ -->
+    <div style="padding: 60px 0 120px 0; text-align: center; color: var(--text-muted); font-size: 0.85em;">
+        <p>© 2026 CRYSTAL CLEANING 03. Безупречный послестроительный клининг в Улан-Удэ.</p>
+    </div>
+
+    <!-- ФИКСИРОВАННЫЙ ДОК ДЛЯ СВЯЗИ -->
+    <div class="smart-dock">
+        <a href="tel:+79940949228" class="dock-link">
+            <!-- Иконка телефонной трубки -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            Позвонить
+        </a>
+        <a href="https://wa.me" class="dock-link" target="_blank" style="color: #25d366;">
+            <!-- Иконка мессенджера WhatsApp -->
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+            WhatsApp
+        </a>
+    </div>
+
+    <!-- ЛОГИКА ЖИВОГО КАЛЬКУЛЯТОРА И СБОРКА ССЫЛКИ ДЛЯ ПОСЛЕСТРОЯ -->
+    <script>
+        const rArea = document.getElementById('repairArea');
+        const rAreaOut = document.getElementById('repairAreaOut');
+        const rTotalOut = document.getElementById('repairTotalOut');
+        const repWin = document.getElementById('repWin');
+        const repLustre = document.getElementById('repLustre');
+        const repTrash = document.getElementById('repTrash');
+        const rWaSubmit = document.getElementById('repairWaSubmit');
+
+        const rateRepair = 170; // Твоя базовая ставка за послестрой (руб/м²)
+
+        function calculateRepair() {
+            let area = parseInt(rArea.value);
+            rAreaOut.innerText = area;
+
+            let total = area * rateRepair;
+
+            // Добавляем стоимость опций, если стоят галочки
+            if (repWin.checked) total += (area * 30); // Мытье всех окон (+30₽ за каждый кв.м. площади)
+            if (repLustre.checked) total += 1000;      // Сложные люстры (+1000₽)
+            if (repTrash.checked) total += 1500;       // Сбор мелкого мусора (+1500₽)
+
+            // Выводим итоговую сумму на экран
+            rTotalOut.innerText = `${total} ₽`;
+
+            // Генерируем текст сообщения, который автоматически откроется у тебя в чате, когда клиент нажмет кнопку
+            let message = `Здравствуйте! Я рассчитал послестроительный клининг на сайте: площадь ${area} кв.м.${repWin.checked ? ' + Глубокое мытье окон' : ''}${repLustre.checked ? ' + Сложные люстры' : ''}${repTrash.checked ? ' + Сбор мусора' : ''}. Итоговая сумма по прайсу: ${total} рублей. Проверьте свободные даты для выезда бригады.`;
+            
+            // Зашиваем текст в ссылку кнопки
+            rWaSubmit.href = `https://wa.me?text=${encodeURIComponent(message)}`;
+        }
+
+        // Навешиваем слушатели событий: как только клиент двигает ползунок или кликает галочки — калькулятор мгновенно пересчитывает сумму
+        rArea.addEventListener('input', calculateRepair);
+        repWin.addEventListener('change', calculateRepair);
+        repLustre.addEventListener('change', calculateRepair);
+        repTrash.addEventListener('change', calculateRepair);
+
+        // Скрипт-индикатор для зоны загрузки фотографий
+        document.getElementById('repairPhotos').addEventListener('change', function(e) {
+            let count = e.target.files.length;
+            if (count > 0) {
+                document.getElementById('repairFileText').innerText = `✓ Добавлено кадров для экспресс-анализа: ${count}`;
+            }
+        });
+
+        // Делаем первичный расчет сразу при загрузке страницы, чтобы клиент не видел пустые поля
+        calculateRepair();
+    </script>
+</body>
+</html>

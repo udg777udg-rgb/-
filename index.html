@@ -3,208 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ PREMIUM CLEANING | Улан-Удэ</title>
-    <!-- Подключаем шрифты и анимации -->
+    <title>КРИСТАЛЛ КЛИНИНГ 03 | Профессиональный послестроительный клининг Улан-Удэ</title>
     <link href="https://googleapis.com" rel="stylesheet">
-    <script src="https://unpkg.com"></script>
     <style>
         :root {
-            --neon-blue: #00f0ff;
-            --neon-purple: #ff0077;
-            --dark-bg: #0a0a0c;
-            --card-bg: rgba(20, 20, 25, 0.7);
+            --brand-cyan: #00f0ff;
+            --brand-blue: #0072ff;
+            --dark-overlay: rgba(10, 10, 12, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.04);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark-bg);
+            font-family: 'Ubuntu', sans-serif;
+            background-color: #070709;
             color: #ffffff;
-            overflow-x: hidden;
-            background-image: radial-gradient(circle at 50% 0%, #141026 0%, var(--dark-bg) 70%);
+            line-height: 1.6;
         }
-        /* 3D Canvas Фоновый контейнер */
-        #canvas-container {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; pointer-events: none;
-        }
-        header {
+
+        /* БЛОК 1: ГЛАВНЫЙ ЭКРАН С ВИДЕОФОНОМ */
+        .hero-section {
+            position: relative;
+            width: 100%;
             min-height: 100vh;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            text-align: center; padding: 20px; position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            padding: 30px 5%;
         }
-        .logo {
-            font-weight: 900; font-size: 1.5em; letter-spacing: 5px;
-            color: #fff; text-shadow: 0 0 10px var(--neon-blue);
-            margin-bottom: 50px; text-transform: uppercase;
+        .video-bg {
+            position: absolute;
+            top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto;
+            z-index: -2;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
         }
-        .main-title {
-            font-size: 3.5em; font-weight: 900; text-transform: uppercase;
-            letter-spacing: -1px; line-height: 1.1; margin-bottom: 20px;
-            background: linear-gradient(45deg, #fff 30%, var(--neon-blue));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(7,7,9,0.5) 0%, var(--dark-overlay) 100%);
+            z-index: -1;
         }
-        .subtitle {
-            font-size: 1.2em; color: #8a8a93; max-width: 600px;
-            margin-bottom: 40px; font-weight: 300;
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
-        /* Дорогая неоновая кнопка */
-        .btn-premium {
-            background: transparent;
-            color: #fff; border: 2px solid var(--neon-blue);
-            padding: 20px 45px; font-size: 1em; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 2px;
-            border-radius: 50px; cursor: pointer; text-decoration: none;
-            transition: all 0.4s ease;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2), inset 0 0 15px rgba(0, 240, 255, 0.1);
+        .logo-box { font-weight: 700; font-size: 1.5em; letter-spacing: 1px; text-transform: uppercase; }
+        .logo-box span { color: var(--brand-cyan); }
+        .hero-content {
+            max-width: 800px;
+            margin: auto 0;
+            padding: 40px 0;
         }
-        .btn-premium:hover {
-            background: var(--neon-blue);
-            color: var(--dark-bg);
-            box-shadow: 0 0 35px var(--neon-blue);
-            transform: scale(1.05);
+        .hero-content h1 {
+            font-size: 3.2em;
+            line-height: 1.2;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 100px 20px; }
-        .grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px; margin-top: 50px;
+        .hero-content h1 span {
+            color: var(--brand-cyan);
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
         }
-        /* Карточки с эффектом матового стекла (Glassmorphism) */
-        .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 40px; border-radius: 20px;
-            transition: all 0.3s ease; position: relative; overflow: hidden;
+        .hero-content p {
+            font-size: 1.2em;
+            color: #e4e4e7;
+            margin-bottom: 40px;
+            max-width: 650px;
         }
-        .card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
-            opacity: 0; transition: 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(0, 240, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
-        }
-        .card:hover::before { opacity: 1; }
-        .card h3 { font-size: 1.5em; margin-bottom: 15px; font-weight: 700; letter-spacing: 1px; }
-        .card p { color: #8a8a93; font-size: 0.95em; line-height: 1.7; font-weight: 300; }
-        .section-title { font-size: 2.5em; font-weight: 900; text-align: center; text-transform: uppercase; }
         
-        .footer-cta {
-            background: linear-gradient(180deg, transparent, rgba(255, 0, 119, 0.1));
-            text-align: center; padding: 100px 20px; border-top: 1px solid rgba(255, 255, 255, 0.05);
+        /* КНОПКИ ДЕЙСТВИЯ */
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 18px 35px;
+            font-size: 1em;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 6px;
+            display: inline-block;
+            transition: 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-main {
+            background: linear-gradient(45deg, var(--brand-blue), #00c6ff);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 114, 255, 0.4);
+        }
+        .btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 114, 255, 0.6);
+        }
+        .btn-sec {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .btn-sec:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--brand-cyan);
+        }
+
+        /* ОБЩИЙ СТИЛЬ ДЛЯ СЕКЦИЙ */
+        .section {
+            padding: 90px 5%;
+            background: #0b0c10;
+        }
+        .section:nth-child(even) { background: #12141c; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .section-title {
+            font-size: 2.2em;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .section-title::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px; background: var(--brand-cyan);
+        }
+
+        /* БЛОК 2: АРСЕНАЛ И ХИМИЯ */
+        .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .tech-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.03); padding: 30px; border-radius: 8px; }
+        .tech-card .icon { font-size: 2.5em; margin-bottom: 20px; color: var(--brand-cyan); }
+        .tech-card h3 { font-size: 1.3em; margin-bottom: 15px; text-transform: uppercase; }
+        .tech-card p { color: #a1a1aa; font-size: 0.95em; }
+
+        /* БЛОК 3: ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР */
+        .calc-wrapper {
+            background: linear-gradient(135deg, #13151a 0%, #090a0d 100%);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px; padding: 40px; max-width: 700px; margin: 0 auto;
+        }
+        .calc-group { margin-bottom: 25px; }
+        .calc-group label { display: block; margin-bottom: 10px; font-weight: 500; font-size: 1.1em; color: #e4e4e7; }
+        .range-slider { width: 100%; -webkit-appearance: none; background: #272935; height: 8px; border-radius: 5px; outline: none; }
+        .range-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--brand-cyan); cursor: pointer; box-shadow: 0 0 10px var(--brand-cyan); }
+        .area-display { font-size: 1.5em; font-weight: bold; color: var(--brand-cyan); margin-top: 5px; }
+        .checkbox-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .check-label { display: flex; align-items: center; position: relative; cursor: pointer; color: #a1a1aa; }
+        .check-label input { margin-right: 10px; width: 18px; height: 18px; }
+        .total-price-box { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 30px; padding-top: 20px; text-align: center; }
+        .total-price-box h3 { font-size: 1.2em; text-transform: uppercase; color: #a1a1aa; }
+        .price-output { font-size: 3em; font-weight: 700; color: var(--brand-cyan); margin: 10px 0; }
+
+        /* БЛОК 4: ФОРМА ЗАЯВКИ И ЗАГРУЗКА ФОТО */
+        .form-wrapper { max-width: 600px; margin: 0 auto; background: var(--card-bg); padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); }
+        .input-field { width: 100%; padding: 15px; background: #16171e; border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: #fff; font-size: 1em; margin-bottom: 20px; outline: none; }
+        .input-field:focus { border-color: var(--brand-cyan); }
+        .file-upload-box { border: 2px dashed rgba(255, 255, 255, 0.15); padding: 30px; text-align: center; border-radius: 6px; cursor: pointer; background: #16171e; margin-bottom: 25px; transition: 0.3s; }
+        .file-upload-box:hover { border-color: var(--brand-cyan); }
+        .file-upload-box p { color: #a1a1aa; font-size: 0.9em; margin-top: 5px; }
+        .file-input { display: none; }
+
+        /* БЛОК 5: ФУТЕР И КОНТАКТЫ */
+        .footer { padding: 60px 5%; background: #050608; text-align: center; border-top: 2px solid var(--brand-blue); }
+        .footer p { color: #71717a; font-size: 0.9em; margin-top: 15px; }
+
+        /* ИКОНКА ЗВОНКА / WHATSAPP */
+        .sticky-actions { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
+        .action-circle { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-decoration: none; transition: 0.3s; }
+        .action-circle:hover { transform: scale(1.1); }
+        .btn-whatsapp { background-color: #25d366; animation: pulse 2s infinite; }
+        .btn-phone { background-color: var(--brand-blue); }
+        .action-circle svg { width: 30px; height: 30px; fill: #fff; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* АДАПТИВНОСТЬ ПОД ЭКРАНЫ */
+        @media (max-width: 992px) {
+            .hero-content h1 { font-size: 2.5em; }
+            .section { padding: 70px 5%; }
         }
         @media (max-width: 768px) {
-            .main-title { font-size: 2.2em; }
-            .section-title { font-size: 1.8em; }
+            .hero-content h1 { font-size: 1.9em; }
+            .hero-content p { font-size: 1em; }
+            .section-title { font-size: 1.7em; }
+            .price-output { font-size: 2.3em; }
+            .calc-wrapper, .form-wrapper { padding: 25px 15px; }
+            .sticky-actions { bottom: 20px; right: 20px; }
+            .action-circle { width: 50px; height: 50px; }
+            .action-circle svg { width: 24px; height: 24px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Сюда Three.js будет транслировать 3D анимацию -->
-    <div id="canvas-container">
-        <canvas id="waveCanvas"></canvas>
-    </div>
+    <!-- БЛОК 1: ГЛАВНЫЙ ЭКРАН С ВИДЕОФОНОМ -->
+    <div class="hero-section">
+        <video autoplay loop muted playsinline class="video-bg">
+            <source src="https://mixkit.co" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
 
-    <header>
-        <div class="logo">NEXT-GEN CLEAN</div>
-        <h1 class="main-title">Интеллектуальный<br>клининг после ремонта</h1>
-        <p class="subtitle">Удаление мелкодисперсной строительной пыли на молекулярном уровне. Сдача объекта по цифровому чек-листу с гарантией сохранности премиальных интерьеров.</p>
-        <a href="https://wa.me" class="btn-premium" target="_blank">Запустить расчет стоимости</a>
-    </header>
+        <nav>
+            <div class="logo-box">КРИСТАЛЛ КЛИНИНГ <span>03</span></div>
+            <div style="font-weight: 500; font-size: 0.9em; letter-spacing: 1px;">УЛАН-УДЭ</div>
+        </nav>
 
-    <div class="container">
-        <h2 class="section-title">Технологическое превосходство</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>01 / ZERO DUST</h3>
-                <p>Промышленные турбины вытягивают строительный осадок из труднодоступных полостей, радиаторов и вентиляционных шахт. Воздух в квартире фильтруется до медицинских стандартов.</p>
-            </div>
-            <div class="card">
-                <h3>02 / ХИМИЯ ТЯЖЕЛОГО КЛАССА</h3>
-                <p>Используем швейцарские составы Pramol. Они мягко расщепляют эпоксидную затирку, цементные брызги и клей, полностью исключая повреждение матового керамогранита или сантехники.</p>
-            </div>
-            <div class="card">
-                <h3>03 / DIGITAL КОНТРОЛЬ</h3>
-                <p>Вам не нужно присутствовать на объекте. Наша экосистема фиксирует состояние каждого квадратного сантиметра. Вы получаете детальный интерактивный отчет до и после клининга.</p>
-            </div>
-        </div>
-    </div>
+        <div class="hero-content">
+            <h1>Высокотехнологичный послестрой <span>от 170₽/м²</span></h1>
+            <p>Удалим въевшуюся цементную пыль, затирку и следы скотча. Сдаем объект по интерактивному чек-листу с гарантией защиты вашего дорогого ремонта.</p>
 
-    <section class="footer-cta">
-        <h2 class="main-title" style="font-size: 2.5em; margin-bottom: 30px;">Интегрируйте чистоту в ваш новый дом</h2>
-        <a href="https://wa.me" class="btn-premium" target="_blank">Занять слот на уборку</a>
-    </section>
-
-    <!-- СКРИПТ ДЛЯ ГЕНЕРАЦИИ ИНТЕРАКТИВНОЙ 3D ВОЛНЫ И ПЛАВНОГО СКРОЛЛА -->
-    <script>
-        // Инициализация плавного появления элементов при скролле
-        ScrollReveal().reveal('.card', { delay: 200, distance: '50px', duration: 1000, origin: 'bottom', interval: 100 });
-        ScrollReveal().reveal('.section-title', { delay: 100, duration: 800 });
-
-        // Генерация математической 3D-анимации на Canvas
-        const canvas = document.getElementById('waveCanvas');
-        const ctx = canvas.getContext('2d');
-        let width = canvas.width = window.innerWidth;
-        let height = canvas.height = window.innerHeight;
-
-        let mouse = { x: width / 2, y: height / 2 };
-        window.addEventListener('mousemove', (e) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-
-        window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        });
-
-        let points = [];
-        const numLines = 15;
-        const pointsPerLine = 40;
-
-        function animate(time) {
-            ctx.clearRect(0, 0, width, height);
-            time *= 0.001;
-
-            ctx.lineWidth = 1;
-            
-            for (let i = 0; i < numLines; i++) {
-                ctx.beginPath();
-                // Градиент от неонового синего к фиолетовому с прозрачностью
-                let gradient = ctx.createLinearGradient(0, 0, width, 0);
-                gradient.addColorStop(0, 'rgba(0, 240, 255, 0.02)');
-                gradient.addColorStop(0.5, `rgba(0, 240, 255, ${0.12 - (i * 0.005)})`);
-                gradient.addColorStop(1, 'rgba(255, 0, 119, 0.02)');
-                ctx.strokeStyle = gradient;
-
-                for (let j = 0; j < pointsPerLine; j++) {
-                    let x = (j / (pointsPerLine - 1)) * width;
-                    
-                    // Математическая синусоида, создающая эффект глубокой 3D волны
-                    let wave1 = Math.sin(j * 0.2 + time + i * 0.3) * 60;
-                    let wave2 = Math.cos(j * 0.1 - time * 0.5 + i * 0.1) * 40;
-                    
-                    // Взаимодействие с мышкой
-                    let dx = mouse.x - x;
-                    let influence = Math.max(0, 1 - Math.abs(dx) / 300);
-                    let mouseDistortion = Math.sin(time * 2) * 30 * influence * (mouse.y / height);
-
-                    let y = (height * 0.5) + wave1 + wave2 + mouseDistortion + (i * 12 - (numLines * 6));
-
-                    if (j === 0) ctx.moveTo(x, y);
-                    else ctx.lineTo(x, y);
-                }
-                ctx.stroke();
-            }
-            requestAnimationFrame(animate);
-        }
-        requestAnimationFrame(animate);
-    </script>
-</body>
-</html>

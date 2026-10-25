@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crystal Cleaning | Премиальная экосистема клининга Улан-Удэ</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Индивидуальные стили для интерактивного хаба */
+        .hub-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px 0;
+        }
+        .hub-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        .brand-logo {
+            font-weight: 900;
+            font-size: 1.6em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .brand-logo span {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
+        .hub-title-block {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 50px auto;
+        }
+        .hub-title-block h1 {
+            font-size: 3.5em;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+        .hub-title-block p {
+            font-size: 1.15em;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+        .col-6 { grid-column: span 6; }
+        .col-12 { grid-column: span 12; }
+        
+        .route-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 320px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .route-card h2 {
+            font-size: 1.8em;
+            color: #ffffff;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+        .route-card:hover h2 {
+            color: var(--accent-cyan);
+        }
+        .route-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.03);
+        }
+        .route-price {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .route-arrow {
+            width: 45px; height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            transition: 0.3s;
+        }
+        .route-card:hover .route-arrow {
+            background: var(--accent-cyan);
+            color: #000000;
+            box-shadow: 0 0 15px var(--accent-cyan);
+            transform: translateX(3px);
+        }
+
+        @media (max-width: 768px) {
+            .hub-title-block h1 { font-size: 2.3em; }
+            .col-6 { grid-column: span 12; }
+            .route-card { min-height: 260px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-light"></div>
+
+    <div class="container hub-wrapper">
+        <!-- ВЕРХНЯЯ НАВИГАЦИОННАЯ ПАНЕЛЬ -->
+        <header class="hub-header">
+            <div class="brand-logo">CRYSTAL <span>CLEANING</span></div>
+            <div style="font-weight: 500; font-size: 0.9em; letter-spacing: 2px; color: var(--text-muted);">УЛАН-УДЭ</div>
+        </header>
+
+        <!-- ЦЕНТРАЛЬНЫЙ ЗАГОЛОВОК -->
+        <div class="hub-title-block">
+            <h1 class="text-gradient">Интеллектуальный клининг нового поколения</h1>
+            <p>Выберите целевой сценарий уборки. Передовое немецкое оборудование KÄRCHER, профессиональная химия PRO-BRITE и цифровой контроль сдачи каждого квадратного метра.</p>
+        </div>
+
+        <!-- ИНТЕРАКТИВНАЯ БЕНТО-СЕТКА ВЫБОРА НАПРАВЛЕНИЙ -->
+        <main class="bento-grid" style="margin-bottom: 60px;">
+            
+            <!-- КАРТОЧКА НАПРАВЛЕНИЯ: ГЕНЕРАЛЬНАЯ УБОРКА -->
+            <a href="general-cleaning.html" class="bento-card col-6 route-card">
+                <div>
+                    <div style="font-size: 0.75em; font-weight: 700; color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">Сценарий 01</div>
+                    <h2>Генеральное<br>обнуление пространств</h2>
+                    <p style="color: var(--text-muted); font-size: 0.95em; font-weight: 300;">Глубокая очистка после арендаторов, подготовка квартир к продаже или тотальное удаление скрытой пыли и жира.</p>
+                </div>
+                <div class="route-meta">
+                    <div class="route-price">от 130 ₽ / м²</div>
+                    <div class="route-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- КАРТОЧКА НАПРАВЛЕНИЯ: ПОСЛЕ РЕМОНТА -->
+            <a href="after-repair.html" class="bento-card col-6 route-card" style="border-color: rgba(0, 240, 255, 0.1); background: rgba(0, 240, 255, 0.01);">
+                <div>
+                    <div style="font-size: 0.75em; font-weight: 700; color: var(--accent-cyan); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">Сценарий 02</div>
+                    <h2>Интеллектуальный<br>послестрой</h2>
+                    <p style="color: var(--text-muted); font-size: 0.95em; font-weight: 300;">Ликвидация мелкодисперсной строительной пыли, остатков эпоксидной затирки и скотча. Защита деликатных покрытий.</p>
+                </div>
+                <div class="route-meta">
+                    <div class="route-price" style="color: var(--accent-cyan);">от 170 ₽ / м²</div>
+                    <div class="route-arrow">→</div>
+                </div>
+            </a>
+
+            <!-- ИНФОРМАЦИОННЫЙ БЕНТО-БЛОК СТАТУСА -->
+            <div class="bento-card col-12" style="text-align: center; padding: 30px;">
+                <p style="color: var(--text-muted); font-size: 0.9em; font-weight: 300;">
+                    Все выездные бригады Crystal Cleaning укомплектованы промышленными турбинами и обучены стандартам бережной работы.
+                </p>
+            </div>
+
+        </main>
+
+        <!-- НИЖНИЙ КОНТЕКСТНЫЙ СЛОЙ -->
+        <footer style="text-align: center; color: rgba(255,255,255,0.15); font-size: 0.8em; border-top: 1px solid rgba(255,255,255,0.03); padding-top: 20px;">
+            <p>© 2026 CRYSTAL CLEANING 03. Зарегистрированная торговая марка. Все права защищены.</p>
+        </footer>
+    </div>
+
+    <!-- МИНИМАЛИСТИЧНЫЙ ДОК БЫСТРОГО ВЫЗОВА -->
+    <div class="smart-dock">
+        <a href="tel:+79940949228" class="dock-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Экстренный выезд
+        </a>
+    </div>
+
+</body>
+</html>

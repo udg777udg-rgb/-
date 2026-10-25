@@ -1,0 +1,187 @@
+/* ----------------------------------------------------
+   CRYSTAL CLEANING — PREMIUM DESIGN SYSTEM 2030
+   ---------------------------------------------------- */
+
+:root {
+    --bg-main: #060608;
+    --bg-card: rgba(255, 255, 255, 0.02);
+    --border-card: rgba(255, 255, 255, 0.05);
+    --text-main: #f8fafc;
+    --text-muted: #64748b;
+    --accent-cyan: #00f0ff;
+    --accent-glow: rgba(0, 240, 255, 0.08);
+    --font-system: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-system);
+    overflow-x: hidden;
+}
+
+/* ЭФФЕКТ ОБЪЕМНОГО СВЕЧЕНИЯ НА ФОНЕ (AMBIENT GLOW) */
+.ambient-light {
+    position: fixed;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    height: 50vh;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.05) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* КОНТЕЙНЕРЫ И СЕТКИ БЕНТО (APPLE STYLE) */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.bento-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 40px;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.bento-card:hover {
+    border-color: rgba(0, 240, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(0, 240, 255, 0.02);
+    transform: translateY(-2px);
+}
+
+/* ТИПОГРАФИКА ВЫСШЕГО КЛАССА */
+h1, h2, h3 {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+}
+
+.text-gradient {
+    background: linear-gradient(180deg, #ffffff 40%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ИНТЕЛЛЕКТУАЛЬНЫЕ КНОПКИ С МИКРО-ОТКЛИКОМ */
+.btn-nextgen {
+    background: #ffffff;
+    color: #000000;
+    padding: 20px 40px;
+    border-radius: 40px;
+    font-size: 0.95em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.btn-nextgen:hover {
+    background: var(--accent-cyan);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+    transform: scale(1.02);
+}
+
+/* ИНТЕРФЕЙС КАЛЬКУЛЯТОРА БУДУЩЕГО */
+.slider-wrapper {
+    margin: 30px 0;
+}
+
+.custom-range {
+    width: 100%;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.05);
+    height: 6px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.custom-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    transition: 0.2s ease;
+    border: 2px solid var(--bg-main);
+}
+
+.custom-range::-webkit-slider-thumb:hover {
+    background: var(--accent-cyan);
+    box-shadow: 0 0 15px var(--accent-cyan);
+}
+
+/* СТИЛИЗАЦИЯ ИКОНОК И ФИКСИРОВАННЫХ ПАНЕЛЕЙ */
+.smart-dock {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 15, 20, 0.7);
+    border: 1px solid var(--border-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 12px 30px;
+    border-radius: 100px;
+    display: flex;
+    gap: 25px;
+    z-index: 1000;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+.dock-link {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.dock-link:hover {
+    color: var(--accent-cyan);
+}
+
+/* АДАПТИВНОСТЬ ПОД ВСЕ ЭКРАНЫ */
+@media (max-width: 1024px) {
+    .container { padding: 0 24px; }
+    .bento-grid { grid-template-columns: repeat(6, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .bento-grid { display: flex; flex-direction: column; }
+    h1 { font-size: 2.4em !important; }
+}
